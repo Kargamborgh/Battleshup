@@ -30,17 +30,17 @@ public class TwoShip implements ShipInterface{
     @Override
     public int[] returnHealth() {
         return this.squares;
-        //implemented later, returns squares that have not been hit
+        //return square values
     }
 
     @Override
     public void sink() {
-        //sink ship (remove from play)
+        //sink ship (remove from play) implement later
     }
 
     @Override
     public boolean isPlaced() {
-        return false;
+        return false; //implement later
     }
     
 }
