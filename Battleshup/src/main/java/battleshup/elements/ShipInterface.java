@@ -12,7 +12,7 @@ package battleshup.elements;
  */
 public interface ShipInterface {
     int returnSize();
-    int returnHealth();
+    int[] returnHealth();
     void sink();
     boolean isPlaced();
 }

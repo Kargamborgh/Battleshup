@@ -18,6 +18,7 @@ public class ThreeShip implements ShipInterface {
         squares = new int[3];
         for(int i = 0; i < 3; i++) {
             squares[i] = 1;
+            this.squares = squares;
         }
     }
     
@@ -27,8 +28,8 @@ public class ThreeShip implements ShipInterface {
     }
 
     @Override
-    public int returnHealth() {
-        return 0;
+    public int[] returnHealth() {
+        return this.squares;
         //implemented later, returns squares that have not been hit
     }
 

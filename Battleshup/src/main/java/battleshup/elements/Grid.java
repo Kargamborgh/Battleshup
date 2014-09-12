@@ -31,4 +31,8 @@ public class Grid {
         return false; //not implemented yet
     }
     
+    public int shipsOnGrid() {
+        return 0; //not yet lolz
+    }
+    
 }
