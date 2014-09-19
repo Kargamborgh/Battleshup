@@ -12,7 +12,8 @@ package battleshup.elements;
  */
 public class FourShip implements ShipInterface {
     
-    int[] squares;
+    private int[] squares;
+    private boolean placed;
     
     public FourShip() {
         squares = new int[4];
@@ -40,7 +41,30 @@ public class FourShip implements ShipInterface {
 
     @Override
     public boolean isPlaced() {
-        return false; //implement later
+        return placed; 
+    }
+    
+    public boolean place(boolean alignment, int x, int y) { //if all squares are free, place ship and placed == true. if not, return false
+        if (alignment == true) {
+            for (int i = x; i < x + 4; i++) {
+                if (Grid.placementCheck(i, y)) {
+                    Grid.addToSquare(i, y);
+                } else {
+                    return false;
+                }
+            }
+        } else if (alignment == false) {
+            for (int i = y; i < y + 4; i++) {
+                if (Grid.placementCheck(x, i)) {
+                    Grid.addToSquare(x, i);
+                } else {
+                    return false;
+                }
+            }
+        }
+        Grid.addShipToGrid();
+        placed = true;
+        return true;
     }
     
 }

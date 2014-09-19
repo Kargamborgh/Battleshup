@@ -21,11 +21,18 @@ public class Main { //such WIP wow
     public static void startGame() {
         
         //instantiate grid & ships
-        Grid grid = new Grid();
+        Grid gridA = new Grid();
         TwoShip twoShip1 = new TwoShip();
         ThreeShip threeShip1 = new ThreeShip();
         FourShip fourShip1 = new FourShip();
         FiveShip fiveShip1 = new FiveShip();
+        
+        Grid gridB = new Grid();
+        TwoShip twoShip2 = new TwoShip();
+        ThreeShip threeShip2 = new ThreeShip();
+        FourShip fourShip2 = new FourShip();
+        FiveShip fiveShip2 = new FiveShip();
+        
     }
     
     public static void main(String[] args) {

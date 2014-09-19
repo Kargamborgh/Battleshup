@@ -62,28 +62,15 @@ public class FourShipTest {
         assertArrayEquals(expResult, result);
     }
 
-    /**
-     * Test of sink method, of class FourShip.
-     */
-    @Test
-    public void testSink() {
-        System.out.println("sink");
-        FourShip instance = new FourShip();
-        instance.sink();
-        //dumb-ass test since not implemented yet
-    }
+    //add testing for sink when it's implemented
 
-    /**
-     * Test of isPlaced method, of class FourShip.
-     */
     @Test
-    public void testIsPlaced() {
-        System.out.println("isPlaced");
-        FourShip instance = new FourShip();
-        boolean expResult = false;
-        boolean result = instance.isPlaced();
-        assertEquals(expResult, result);
-        //dumb-ass test since not implemented yet
+    public void testPlacing() { //if placing succeeds, place and isPlaced should return true
+        Grid grid = new Grid();
+        TwoShip instance = new TwoShip();
+        
+        assertTrue(instance.place(true, 2, 2));
+        assertTrue(instance.isPlaced());
     }
     
 }

@@ -44,30 +44,26 @@ public class GridTest {
         assertNotNull(instance);
     }
     
-    /**
-     * Test of placeShip method, of class Grid.
-     */
     @Test
-    public void testPlaceShip() {
-        System.out.println("placeShip");
+    public void testPlacementCheck() {
         Grid instance = new Grid();
-        boolean expResult = false;
-        boolean result = instance.placeShip();
-        assertEquals(expResult, result);
-        //dumb-ass test since not implemented yet
+        assertTrue(instance.placementCheck(1,1)); //constructor sets all squares to 1, this should return true
     }
-
-    /**
-     * Test of shipsOnGrid method, of class Grid.
-     */
+    
     @Test
-    public void testShipsOnGrid() {
-        System.out.println("shipsOnGrid");
+    public void testAddShip() {
         Grid instance = new Grid();
-        int expResult = 0;
-        int result = instance.shipsOnGrid();
-        assertEquals(expResult, result);
-        //dumb-ass test since not implemented yet
+        instance.addShipToGrid();
+        assertEquals(instance.shipsOnGrid(), 1); //ship should be added
+    }
+    
+    @Test
+    public void testSquareEditing() { //add to square, check that adding works, then hit square and check that hitting works
+        Grid instance = new Grid();
+        instance.addToSquare(1,1);
+        assertEquals(instance.checkSquare(1,1), 1);
+        instance.hitSquare(1,1);
+        assertEquals(instance.checkSquare(1,1), 0);
     }
     
 }

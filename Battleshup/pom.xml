@@ -48,10 +48,14 @@
     <version>0.30</version>
     <configuration>
         <targetClasses>
-            <param>battleshup.logiikka.*</param>
+            <param>battleshup.battleshup.*</param>
+            <param>battleshup.elements.*</param>
+            <param>battleshup.logic.*</param>
         </targetClasses>
         <targetTests>
-            <param>battleshup.logiikka.*</param>
+            <param>battleshup.battleshup.*</param>
+            <param>battleshup.elements.*</param>
+            <param>battleshup.logic.*</param>
         </targetTests>
     </configuration>
 </plugin>

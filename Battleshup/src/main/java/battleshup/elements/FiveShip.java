@@ -12,7 +12,8 @@ package battleshup.elements;
  */
 public class FiveShip implements ShipInterface {
     
-    int[] squares; //square value 1 means not hit, 0 means hit
+    private int[] squares; //square value 1 means not hit, 0 means hit
+    private boolean placed;
     
     public FiveShip() {
         squares = new int[5];
@@ -40,7 +41,30 @@ public class FiveShip implements ShipInterface {
 
     @Override
     public boolean isPlaced() {
-        return false; //implement later
+        return placed;
+    }
+    
+    public boolean place(boolean alignment, int x, int y) { //if all squares are free, place ship and placed == true. if not, return false
+        if (alignment == true) {
+            for (int i = x; i < x + 5; i++) {
+                if (Grid.placementCheck(i, y)) {
+                    Grid.addToSquare(i, y);
+                } else {
+                    return false;
+                }
+            }
+        } else if (alignment == false) {
+            for (int i = y; i < y + 5; i++) {
+                if (Grid.placementCheck(x, i)) {
+                    Grid.addToSquare(x, i);
+                } else {
+                    return false;
+                }
+            }
+        }
+        Grid.addShipToGrid();
+        placed = true;
+        return true;
     }
     
 }

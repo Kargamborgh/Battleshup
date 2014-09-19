@@ -5,13 +5,17 @@
  */
 
 package battleshup.logic;
-
+import battleshup.elements.Grid;
+//in hindsight
 /**
  *
  * @author Kargamborgh
  */
 public class Shoot {
     
-    //to be implemented later, logic for shooting at ships
+    public Shoot() {
+        //empty constructor
+        //do I even need this class? shooting can be done in grid
+    }
     
 }

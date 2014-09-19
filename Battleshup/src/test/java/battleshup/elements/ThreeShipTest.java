@@ -64,28 +64,15 @@ public class ThreeShipTest {
         
     }
 
-    /**
-     * Test of sink method, of class ThreeShip.
-     */
-    @Test
-    public void testSink() {
-        System.out.println("sink");
-        ThreeShip instance = new ThreeShip();
-        instance.sink();
-        //dumb-ass test since not implemented yet
-    }
+    //add sink method testing when it's implemented
 
-    /**
-     * Test of isPlaced method, of class ThreeShip.
-     */
     @Test
-    public void testIsPlaced() {
-        System.out.println("isPlaced");
-        ThreeShip instance = new ThreeShip();
-        boolean expResult = false;
-        boolean result = instance.isPlaced();
-        assertEquals(expResult, result);
-        //dumb-ass test since not implemented yet
+    public void testPlacing() { //if placing succeeds, place and isPlaced should return true
+        Grid grid = new Grid();
+        TwoShip instance = new TwoShip();
+        
+        assertTrue(instance.place(true, 2, 2));
+        assertTrue(instance.isPlaced());
     }
     
 }

@@ -62,28 +62,16 @@ public class TwoShipTest {
         assertArrayEquals(expResult, result);
     }
 
-    /**
-     * Test of sink method, of class TwoShip.
-     */
-    @Test
-    public void testSink() {
-        System.out.println("sink");
-        TwoShip instance = new TwoShip();
-        instance.sink();
-        //dumb-ass test since not implemented yet
-    }
+    //add sink test later when it's implemented
+    
 
-    /**
-     * Test of isPlaced method, of class TwoShip.
-     */
     @Test
-    public void testIsPlaced() {
-        System.out.println("isPlaced");
+    public void testPlacing() { //if placing succeeds, place and isPlaced should return true
+        Grid grid = new Grid();
         TwoShip instance = new TwoShip();
-        boolean expResult = false;
-        boolean result = instance.isPlaced();
-        assertEquals(expResult, result);
-        //dumb-ass test since not implemented yet
+        
+        assertTrue(instance.place(true, 2, 2));
+        assertTrue(instance.isPlaced());
     }
     
 }
