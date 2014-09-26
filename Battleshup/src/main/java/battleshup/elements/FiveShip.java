@@ -3,23 +3,33 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package battleshup.elements;
 
 /**
  *
  * @author Kargamborgh
+ * 
+ * This is a five-square ship class that extends abstract class Ship.
+ * It knows (or should know after implementation) its position and health (unhit squares).
+ * It also offers methods for placing and removing (sinking) instances of itself.
  */
-public class FiveShip implements ShipInterface {
-    
-    private int[] squares; //square value 1 means not hit, 0 means hit
+public class FiveShip extends Ship {
+
+    private int[] squares;
+    private int[][] position;//square value 1 means not hit, 0 means hit
     private boolean placed;
-    
+
     public FiveShip() {
         squares = new int[5];
-        for(int i = 0; i < 5; i++) {
+        for (int i = 0; i < 5; i++) {
             squares[i] = 1;
             this.squares = squares;
+        }
+        position = new int[20][10];
+        for (int i = 0; i < 20; i++) {
+            for (int j = 0; j < 10; j++) {
+                position[i][j] = 0;
+            }
         }
     }
 
@@ -34,21 +44,35 @@ public class FiveShip implements ShipInterface {
         //return square values
     }
 
+    public int[][] returnPosition() {
+        return null;
+    }
+
     @Override
     public void sink() {
-        //sink ship (remove from play) implement later
+        for (int i = 0; i < 5; i++) {
+            this.squares[i] = 0;
+        }
+        for (int i = 0; i < 20; i++) {
+            for (int j = 0; j < 10; j++) {
+                this.position[i][j] = 0;
+            }
+        }
+        placed = false;
     }
 
     @Override
     public boolean isPlaced() {
         return placed;
     }
-    
+
+    @Override
     public boolean place(boolean alignment, int x, int y) { //if all squares are free, place ship and placed == true. if not, return false
         if (alignment == true) {
             for (int i = x; i < x + 5; i++) {
                 if (Grid.placementCheck(i, y)) {
                     Grid.addToSquare(i, y);
+                    position[i][y] = 1;
                 } else {
                     return false;
                 }
@@ -57,6 +81,7 @@ public class FiveShip implements ShipInterface {
             for (int i = y; i < y + 5; i++) {
                 if (Grid.placementCheck(x, i)) {
                     Grid.addToSquare(x, i);
+                    position[x][i] = 1;
                 } else {
                     return false;
                 }
@@ -66,5 +91,5 @@ public class FiveShip implements ShipInterface {
         placed = true;
         return true;
     }
-    
+
 }

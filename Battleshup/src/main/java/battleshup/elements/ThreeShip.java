@@ -10,26 +10,39 @@ import battleshup.elements.Grid;
 /**
  *
  * @author Kargamborgh
+ * 
+ * This is a three-square ship class that extends abstract class Ship.
+ * It knows (or should know after implementation) its position and health (unhit squares).
+ * It also offers methods for placing and removing (sinking) instances of itself.
  */
-public class ThreeShip implements ShipInterface {
+public class ThreeShip extends Ship {
 
     private int[] squares;
+    private int[][] position;
     private boolean placed;
 
     public ThreeShip() {
-        boolean placed = false;
+        placed = false;
         squares = new int[3];
         for (int i = 0; i < 3; i++) {
             squares[i] = 1;
             this.squares = squares;
         }
+        position = new int[20][10];
+        for (int i = 0; i < 20; i++) {
+            for (int j = 0; j < 10; j++) {
+                position[i][j] = 0;
+            }
+        }
     }
 
+    
     @Override
     public int returnSize() {
         return squares.length;
     }
 
+    
     @Override
     public int[] returnHealth() {
         return this.squares;
@@ -37,20 +50,37 @@ public class ThreeShip implements ShipInterface {
     }
 
     @Override
+    public int[][] returnPosition() {
+        return null;
+    }
+    
+    @Override
     public void sink() {
-        //sink ship (remove from play) implement later
+        for (int i = 0; i < 3; i++) {
+            this.squares[i] = 0;
+        }
+        for (int i = 0; i < 20; i++) {
+            for (int j = 0; j < 10; j++) {
+                this.position[i][j] = 0;
+            }
+        }
+        placed = false;
+        //sink ship (remove from play)
     }
 
+    
     @Override
     public boolean isPlaced() {
         return placed; 
     }
 
+    @Override
     public boolean place(boolean alignment, int x, int y) { //if all squares are free, place ship and placed == true. if not, return false
         if (alignment == true) {
             for (int i = x; i < x + 3; i++) {
                 if (Grid.placementCheck(i, y)) {
                     Grid.addToSquare(i, y);
+                    position[i][y] = 1;
                 } else {
                     return false;
                 }
@@ -59,6 +89,7 @@ public class ThreeShip implements ShipInterface {
             for (int i = y; i < y + 3; i++) {
                 if (Grid.placementCheck(x, i)) {
                     Grid.addToSquare(x, i);
+                    position[x][i] = 1;
                 } else {
                     return false;
                 }

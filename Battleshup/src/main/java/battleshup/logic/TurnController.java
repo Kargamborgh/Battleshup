@@ -9,9 +9,11 @@ package battleshup.logic;
 /**
  *
  * @author Kargamborgh
+ * 
+ * This is (or will be) a turn controller for playing the game.
+ * Will be implemented as project progresses into GUI.
  */
 public class TurnController {
     
-    //to be implemented later, turn controller for playing the game
     
 }

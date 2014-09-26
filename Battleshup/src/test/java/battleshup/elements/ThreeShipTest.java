@@ -64,7 +64,14 @@ public class ThreeShipTest {
         
     }
 
-    //add sink method testing when it's implemented
+    @Test
+    public void testSinking() {
+        ThreeShip instance = new ThreeShip();
+        instance.sink();
+        assertFalse(instance.isPlaced());
+        int[] expResult = {0,0,0};
+        assertArrayEquals(expResult, instance.returnHealth());
+    }
 
     @Test
     public void testPlacing() { //if placing succeeds, place and isPlaced should return true

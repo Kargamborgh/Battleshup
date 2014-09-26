@@ -5,3 +5,7 @@ ends when one player has lost all of their ships.
 **Users**: Player 1, player 2. If there is time left, a simple AI will be implemented, otherwise two human players
 
 **Functions for all users:** Starting the game, placing ships, shooting
+
+25.9.2014 changes:
+
+Grid will be a single instance of 20x10 squares instead of two 10x10 grids and both players' ships will be placed on the same grid.

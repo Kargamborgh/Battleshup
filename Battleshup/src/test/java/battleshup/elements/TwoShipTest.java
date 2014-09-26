@@ -62,7 +62,14 @@ public class TwoShipTest {
         assertArrayEquals(expResult, result);
     }
 
-    //add sink test later when it's implemented
+    @Test
+    public void testSinking() {
+        TwoShip instance = new TwoShip();
+        instance.sink();
+        assertFalse(instance.isPlaced());
+        int[] expResult = {0,0};
+        assertArrayEquals(expResult, instance.returnHealth());
+    }
     
 
     @Test

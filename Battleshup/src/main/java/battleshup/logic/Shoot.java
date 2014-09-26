@@ -6,10 +6,12 @@
 
 package battleshup.logic;
 import battleshup.elements.Grid;
-//in hindsight
 /**
  *
  * @author Kargamborgh
+ * 
+ * This class is used to shoot at squares.
+ * Will be implemented when project progresses.
  */
 public class Shoot {
     
