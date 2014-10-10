@@ -18,12 +18,12 @@ import java.awt.GridLayout;
  */
 public class Grid {
 
-    //simulate a 20x10 grid with a 2-dimensional array
+    //simulate a grid with a 2-dimensional array
     //values at indices are 0 if no ship is present, 1 if ship is present
     private static int[][] gridArray;
     private static int shipsOnGrid;
 
-    JFrame frame = new JFrame();
+    JFrame frame = new JFrame(); //JFrame full of dumb JButtons, todo make clicking on a button shoot at a specific location
     JButton[][] grid;
 
     public Grid(int width, int length) {
