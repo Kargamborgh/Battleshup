@@ -6,6 +6,8 @@
 
 package battleshup.elements;
 
+import battleshup.gui.Grid;
+
 /**
  *
  * @author Kargamborgh

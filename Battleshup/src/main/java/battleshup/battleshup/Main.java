@@ -8,7 +8,7 @@ package battleshup.battleshup;
 
 import battleshup.elements.FiveShip;
 import battleshup.elements.FourShip;
-import battleshup.elements.Grid;
+import battleshup.gui.Grid;
 import battleshup.elements.ThreeShip;
 import battleshup.elements.TwoShip;
 
@@ -21,13 +21,11 @@ public class Main { //such WIP wow
     public static void startGame() {
         
         //instantiate grid & ships
-        Grid gridA = new Grid();
+        new Grid(10,10);
         TwoShip twoShip1 = new TwoShip();
         ThreeShip threeShip1 = new ThreeShip();
         FourShip fourShip1 = new FourShip();
         FiveShip fiveShip1 = new FiveShip();
-        
-        Grid gridB = new Grid();
         TwoShip twoShip2 = new TwoShip();
         ThreeShip threeShip2 = new ThreeShip();
         FourShip fourShip2 = new FourShip();

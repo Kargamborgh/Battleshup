@@ -5,7 +5,7 @@
  */
 
 package battleshup.logic;
-import battleshup.elements.Grid;
+import battleshup.gui.Grid;
 /**
  *
  * @author Kargamborgh

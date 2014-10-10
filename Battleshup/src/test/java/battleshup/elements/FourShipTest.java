@@ -6,6 +6,7 @@
 
 package battleshup.elements;
 
+import battleshup.gui.Grid;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -73,7 +74,7 @@ public class FourShipTest {
 
     @Test
     public void testPlacing() { //if placing succeeds, place and isPlaced should return true
-        Grid grid = new Grid();
+        Grid grid = new Grid(10,10);
         TwoShip instance = new TwoShip();
         
         assertTrue(instance.place(true, 2, 2));

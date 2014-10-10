@@ -3,14 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package battleshup.elements;
+package battleshup.gui;
+
+import javax.swing.JFrame;
+import javax.swing.JButton;
+import java.awt.GridLayout;
 
 /**
  *
  * @author Kargamborgh
- * 
- * This is the grid class or the "playing field" on which ships are placed.
- * It provides several methods for operations on individual squares.
+ *
+ * This is the grid class or the "playing field" on which ships are placed. It
+ * provides several methods for operations on individual squares.
  */
 public class Grid {
 
@@ -19,16 +23,35 @@ public class Grid {
     private static int[][] gridArray;
     private static int shipsOnGrid;
 
-    public Grid() {
+    JFrame frame = new JFrame();
+    JButton[][] grid;
+
+    public Grid(int width, int length) {
+
+        frame.setLayout(new GridLayout(width, length));
+        grid = new JButton[width][length]; //initialise jbutton grid array
+        for (int y = 0; y < length; y++) {
+            for (int x = 0; x < width; x++) {
+                grid[x][y] = new JButton("(" + x + "," + y + ")");
+                frame.add(grid[x][y]); //add button to grid
+            }
+        }
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.pack();
+        frame.setVisible(true);
+        
+        
+
         shipsOnGrid = 0;
-        gridArray = new int[20][10];
-        for (int i = 0; i < 20; i++) {
-            for (int j = 0; j < 10; j++) {
+        
+        //DEPRECATED due to refactoring?
+        gridArray = new int[width][length];
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < length; j++) {
                 gridArray[i][j] = 0; //set array values to 0 as default
             }
         }
     }
-    
 
     public static boolean placementCheck(int x, int y) { //checks that the square is empty, no stacking ships!
         if (gridArray[x][y] == 0) {
@@ -37,7 +60,7 @@ public class Grid {
             return false;
         }
     }
-    
+
     public static void addShipToGrid() {
         shipsOnGrid++;
     }
@@ -45,14 +68,14 @@ public class Grid {
     public int shipsOnGrid() {
         return shipsOnGrid;
     }
-    
+
     public static int checkSquare(int x, int y) {
         return gridArray[x][y];
     }
-    
+
     //hit square, if square has stuff in it
     public void hitSquare(int x, int y) {
-        if (gridArray[x][y] == 1){
+        if (gridArray[x][y] == 1) {
             gridArray[x][y] = 0;
             //hit!
         } else {
@@ -60,7 +83,7 @@ public class Grid {
             //more stuff here on a later deadline
         }
     }
-    
+
     public static void addToSquare(int x, int y) {
         if (gridArray[x][y] == 0) {
             gridArray[x][y] = 1;

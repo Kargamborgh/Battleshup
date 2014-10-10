@@ -6,6 +6,7 @@
 
 package battleshup.elements;
 
+import battleshup.gui.Grid;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -40,26 +41,26 @@ public class GridTest {
 
     @Test
     public void testGridExists() {
-        Grid instance = new Grid();
+        Grid instance = new Grid(10,10);
         assertNotNull(instance);
     }
     
     @Test
     public void testPlacementCheck() {
-        Grid instance = new Grid();
+        Grid instance = new Grid(10,10);
         assertTrue(instance.placementCheck(1,1)); //constructor sets all squares to 1, this should return true
     }
     
     @Test
     public void testAddShip() {
-        Grid instance = new Grid();
+        Grid instance = new Grid(10,10);
         instance.addShipToGrid();
         assertEquals(instance.shipsOnGrid(), 1); //ship should be added
     }
     
     @Test
     public void testSquareEditing() { //add to square, check that adding works, then hit square and check that hitting works
-        Grid instance = new Grid();
+        Grid instance = new Grid(10,10);
         instance.addToSquare(1,1);
         assertEquals(instance.checkSquare(1,1), 1);
         instance.hitSquare(1,1);

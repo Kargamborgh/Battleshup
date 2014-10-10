@@ -5,7 +5,7 @@
  */
 package battleshup.elements;
 
-import battleshup.elements.Grid;
+import battleshup.gui.Grid;
 
 /**
  *
