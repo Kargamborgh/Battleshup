@@ -11,3 +11,7 @@ TODO file
 -jbuttons don't need to know anything else, they can be dumb
 -implement actual gameplay and tests before demo
 -uh oh
+
+14.10.2014
+-indicate if a ship is sunk
+-gameover popup when all ships are sunk

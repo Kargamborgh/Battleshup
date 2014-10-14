@@ -77,9 +77,9 @@ public class ThreeShipTest {
     @Test
     public void testPlacing() { //if placing succeeds, place and isPlaced should return true
         Grid grid = new Grid(10,10);
-        TwoShip instance = new TwoShip();
+        ThreeShip instance = new ThreeShip();
         
-        assertTrue(instance.place(2, 2));
+        assertTrue(instance.place(0, 0));
         assertTrue(instance.isPlaced());
     }
     

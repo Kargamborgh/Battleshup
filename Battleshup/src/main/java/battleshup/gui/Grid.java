@@ -27,7 +27,7 @@ public class Grid {
     private static Ship[][] gridArray;
     private static int shipsOnGrid;
 
-    JFrame frame = new JFrame(); //JFrame full of dumb JButtons, todo make clicking on a button shoot at a specific location
+    JFrame frame = new JFrame(); //JFrame full of JButtons
     JButton[][] grid;
 
     public Grid(int width, int length) {
@@ -61,7 +61,7 @@ public class Grid {
         shipsOnGrid++;
     }
 
-    public int shipsOnGrid() {
+    public static int shipsOnGrid() {
         return shipsOnGrid;
     }
 

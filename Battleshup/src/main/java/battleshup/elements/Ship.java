@@ -16,9 +16,9 @@ package battleshup.elements;
  * 
  */
 public abstract class Ship {
-    int[] herp;
-    int[][] derp;
-    boolean hurr;
+    int[] sq;
+    int[][] pos;
+    boolean plcd;
     protected int health;
     
     abstract int returnSize();

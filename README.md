@@ -3,10 +3,9 @@ Battleshup
 
 Javalabra 2014 Battleship
 
-**Subject:** A classic game of Battleship programmed with Java. The aim of the game is to put several ships of differing sizes onto a 10x10
-grid and then take turns in shooting one square at a time. After the shot the game will announce whether the shot hit or missed. The game
-ends when one player has lost all of their ships. 
+**Subject:** A classic game of Battleship programmed with Java. The game puts several ships of differing sizes onto a 10x10
+grid and the player shoots at squares on the grid. When a square is shot, the GUI indicates if the shot hits or misses a ship.
 
-**Users**: Player 1, player 2. If there is time left, a simple AI will be implemented, otherwise two human players
+**Users**: One player
 
-**Functions for all users:** Starting the game, placing ships, shooting
+**Functions for all users:** Starting the game, shooting at squares
