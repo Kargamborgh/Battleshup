@@ -75,8 +75,20 @@ public class FourShip extends Ship {
     }
     
     @Override
-    public boolean place(boolean alignment, int x, int y) { //if all squares are free, place ship and placed == true. if not, return false
-        if (alignment == true) {
+    public int randomWithRange(int min, int max) {
+        int range = (max - min) + 1;
+        return (int)(Math.random() * range) + min;
+    }
+    
+    public boolean randomAlignment() { //randomize ship alignment: true == horizontal, false == vertical
+        int i = randomWithRange(0,1);
+        return i == 1;
+    }
+    
+    
+    public boolean place(int x, int y) { //if all squares are free, place ship and placed == true. if not, return false
+        if (randomAlignment() == true) {
+            x = randomWithRange(0,7);
             for (int i = x; i < x + 4; i++) {
                 if (Grid.placementCheck(i, y)) {
                     Grid.addToSquare(i, y);
@@ -85,7 +97,8 @@ public class FourShip extends Ship {
                     return false;
                 }
             }
-        } else if (alignment == false) {
+        } else if (randomAlignment() == false) {
+            y = randomWithRange(0,7);
             for (int i = y; i < y + 4; i++) {
                 if (Grid.placementCheck(x, i)) {
                     Grid.addToSquare(x, i);
@@ -99,6 +112,8 @@ public class FourShip extends Ship {
         placed = true;
         return true;
     }
+
+    
 
     
 }

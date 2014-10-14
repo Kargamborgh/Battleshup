@@ -8,6 +8,7 @@ package battleshup.gui;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -40,11 +41,8 @@ public class Grid {
         frame.pack();
         frame.setVisible(true);
         
-        
-
         shipsOnGrid = 0;
         
-        //DEPRECATED due to refactoring?
         gridArray = new int[width][length];
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < length; j++) {

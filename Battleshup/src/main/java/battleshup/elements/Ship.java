@@ -24,7 +24,7 @@ public abstract class Ship {
     abstract int[] returnHealth();
     abstract void sink();
     abstract boolean isPlaced();
-    abstract boolean place(boolean alignment, int x, int y);
+    abstract boolean place(int x, int y);
     abstract int[][] returnPosition();
-    
+    abstract int randomWithRange(int min, int max);
 }

@@ -78,7 +78,7 @@ public class TwoShipTest {
         Grid grid = new Grid(10,10);
         TwoShip instance = new TwoShip();
         
-        assertTrue(instance.place(true, 2, 2));
+        assertTrue(instance.place(2, 2));
         assertTrue(instance.isPlaced());
     }
     
