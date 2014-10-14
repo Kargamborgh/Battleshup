@@ -92,7 +92,7 @@ public class FiveShip extends Ship {
                     return false;
                 }
             }
-        } else if (randomAlignment() == false) {
+        } else {
             y = randomWithRange(0,6);
             for (int i = y; i < y + 5; i++) {
                 if (Grid.placementCheck(x, i)) {

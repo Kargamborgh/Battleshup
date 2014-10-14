@@ -96,7 +96,7 @@ public class TwoShip extends Ship {
                     return false;
                 }
             }
-        } else if (randomAlignment() == false) {
+        } else {
             x = randomWithRange(0,9);
             for (int i = y; i < y + 2; i++) {
                 if (Grid.placementCheck(x, i)) {

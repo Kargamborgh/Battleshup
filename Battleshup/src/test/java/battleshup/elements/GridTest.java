@@ -58,13 +58,13 @@ public class GridTest {
         assertEquals(instance.shipsOnGrid(), 1); //ship should be added
     }
     
-    @Test
+     /*@Test
     public void testSquareEditing() { //add to square, check that adding works, then hit square and check that hitting works
         Grid instance = new Grid(10,10);
         instance.addToSquare(1,1);
         assertEquals(instance.checkSquare(1,1), 1);
         instance.hitSquare(1,1);
         assertEquals(instance.checkSquare(1,1), 0);
-    }
+    } */
     
 }

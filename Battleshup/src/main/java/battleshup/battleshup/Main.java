@@ -22,14 +22,15 @@ public class Main { //such WIP wow
         
         //instantiate grid & ships
         new Grid(10,10);
-        TwoShip twoShip1 = new TwoShip();
-        ThreeShip threeShip1 = new ThreeShip();
-        FourShip fourShip1 = new FourShip();
-        FiveShip fiveShip1 = new FiveShip();
-        TwoShip twoShip2 = new TwoShip();
-        ThreeShip threeShip2 = new ThreeShip();
-        FourShip fourShip2 = new FourShip();
-        FiveShip fiveShip2 = new FiveShip();
+        TwoShip twoShip = new TwoShip();
+        ThreeShip threeShip = new ThreeShip();
+        FourShip fourShip = new FourShip();
+        FiveShip fiveShip = new FiveShip();
+        
+        fiveShip.place(2, 3);
+        fourShip.place(5, 6);
+        threeShip.place(1, 4);
+        twoShip.place(8, 8);
         
     }
     

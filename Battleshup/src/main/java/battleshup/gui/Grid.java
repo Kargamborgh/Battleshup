@@ -5,10 +5,11 @@
  */
 package battleshup.gui;
 
-import javax.swing.JFrame;
-import javax.swing.JButton;
+import battleshup.logic.ButtonListener;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 
 /**
  *
@@ -35,6 +36,7 @@ public class Grid {
             for (int x = 0; x < width; x++) {
                 grid[x][y] = new JButton("(" + x + "," + y + ")");
                 frame.add(grid[x][y]); //add button to grid
+                grid[x][y].addActionListener(new ButtonListener(this,x,y,grid[x][y]));
             }
         }
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -71,15 +73,9 @@ public class Grid {
         return gridArray[x][y];
     }
 
-    //hit square, if square has stuff in it
-    public void hitSquare(int x, int y) {
-        if (gridArray[x][y] == 1) {
-            gridArray[x][y] = 0;
-            //hit!
-        } else {
-            //miss :(
-            //more stuff here on a later deadline
-        }
+    //hit square if square has stuff in it
+    public static boolean hitSquare(int x, int y) {
+        return (gridArray[x][y] == 1);
     }
 
     public static void addToSquare(int x, int y) {

@@ -96,7 +96,7 @@ public class ThreeShip extends Ship {
                     return false;
                 }
             }
-        } else if (randomAlignment() == false) {
+        } else {
             y = randomWithRange(0,8);
             for (int i = y; i < y + 3; i++) {
                 if (Grid.placementCheck(x, i)) {

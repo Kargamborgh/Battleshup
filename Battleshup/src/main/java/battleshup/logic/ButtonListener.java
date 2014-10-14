@@ -5,29 +5,36 @@
  */
 
 package battleshup.logic;
+import battleshup.gui.Grid;
 import java.awt.*;
 import java.awt.event.*;
-import battleshup.gui.Grid;
+import javax.swing.JButton;
 
 /**
  *
  * @author Kargamborgh
  */
-public class AL implements ActionListener {
+public class ButtonListener implements ActionListener {
     
     private Grid grid;
     private int x;
     private int y;
+    private JButton button;
     
-    public AL(Grid grid, int x, int y) {
+    public ButtonListener(Grid grid, int x, int y, JButton button) {
         this.grid = grid;
         this.x = x;
         this.y = y;
+        this.button = button;
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        
+        if (Grid.hitSquare(x, y)) {
+            button.setText("hit");
+        } else {
+            button.setText("missed");
+        }
     }
     
 }

@@ -97,7 +97,7 @@ public class FourShip extends Ship {
                     return false;
                 }
             }
-        } else if (randomAlignment() == false) {
+        } else {
             y = randomWithRange(0,7);
             for (int i = y; i < y + 4; i++) {
                 if (Grid.placementCheck(x, i)) {
