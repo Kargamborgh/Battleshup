@@ -23,6 +23,7 @@ public class FourShip extends Ship {
     private boolean placed;
     
     public FourShip() {
+        health = 4;
         squares = new int[4];
         for(int i = 0; i < 4; i++) {
             squares[i] = 1;
@@ -90,8 +91,8 @@ public class FourShip extends Ship {
         if (randomAlignment() == true) {
             x = randomWithRange(0,7);
             for (int i = x; i < x + 4; i++) {
-                if (Grid.placementCheck(i, y)) {
-                    Grid.addToSquare(i, y);
+                if (!Grid.isSquareEmpty(i, y)) {
+                    Grid.addToSquare(i, y, this);
                     position[i][y] = 1;
                 } else {
                     return false;
@@ -100,8 +101,8 @@ public class FourShip extends Ship {
         } else {
             y = randomWithRange(0,7);
             for (int i = y; i < y + 4; i++) {
-                if (Grid.placementCheck(x, i)) {
-                    Grid.addToSquare(x, i);
+                if (!Grid.isSquareEmpty(x, i)) {
+                    Grid.addToSquare(x, i, this);
                     position[x][i] = 1;
                 } else {
                     return false;
@@ -111,6 +112,11 @@ public class FourShip extends Ship {
         Grid.addShipToGrid();
         placed = true;
         return true;
+    }
+
+    @Override
+    public void hit() {
+        
     }
 
     

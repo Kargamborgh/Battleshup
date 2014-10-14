@@ -21,8 +21,10 @@ public class FiveShip extends Ship {
     private int[][] position;//square value 1 means not hit, 0 means hit
     private boolean placed;
     private int range;
+    private int health;
 
     public FiveShip() {
+        health = 5;
         squares = new int[5];
         for (int i = 0; i < 5; i++) {
             squares[i] = 1;
@@ -85,8 +87,8 @@ public class FiveShip extends Ship {
         if (randomAlignment() == true) {
             x = randomWithRange(0,6);
             for (int i = x; i < x + 5; i++) {
-                if (Grid.placementCheck(i, y)) {
-                    Grid.addToSquare(i, y);
+                if (!Grid.isSquareEmpty(i, y)) {
+                    Grid.addToSquare(i, y, this);
                     position[i][y] = 1;
                 } else {
                     return false;
@@ -95,8 +97,8 @@ public class FiveShip extends Ship {
         } else {
             y = randomWithRange(0,6);
             for (int i = y; i < y + 5; i++) {
-                if (Grid.placementCheck(x, i)) {
-                    Grid.addToSquare(x, i);
+                if (!Grid.isSquareEmpty(x, i)) {
+                    Grid.addToSquare(x, i, this);
                     position[x][i] = 1;
                 } else {
                     return false;

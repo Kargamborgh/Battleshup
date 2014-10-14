@@ -23,6 +23,7 @@ public class TwoShip extends Ship {
     private boolean placed;
     
     public TwoShip() {
+        health = 2;
         placed = false;
         squares = new int[2];
         for (int i = 0; i < 2; i++) {
@@ -89,8 +90,8 @@ public class TwoShip extends Ship {
         if (randomAlignment() == true) {
             x = randomWithRange(0,9);
             for (int i = x; i < x + 2; i++) {
-                if (Grid.placementCheck(i, y)) {
-                    Grid.addToSquare(i, y);
+                if (!Grid.isSquareEmpty(i, y)) {
+                    Grid.addToSquare(i, y, this);
                     position[i][y] = 1;
                 } else {
                     return false;
@@ -99,8 +100,8 @@ public class TwoShip extends Ship {
         } else {
             x = randomWithRange(0,9);
             for (int i = y; i < y + 2; i++) {
-                if (Grid.placementCheck(x, i)) {
-                    Grid.addToSquare(x, i);
+                if (!Grid.isSquareEmpty(x, i)) {
+                    Grid.addToSquare(x, i, this);
                     position[x][i] = 1;
                 } else {
                     return false;
@@ -111,6 +112,4 @@ public class TwoShip extends Ship {
         placed = true;
         return true;
     }
-
-    
 }

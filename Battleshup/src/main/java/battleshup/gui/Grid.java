@@ -5,11 +5,13 @@
  */
 package battleshup.gui;
 
+import battleshup.elements.Ship;
 import battleshup.logic.ButtonListener;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,7 +24,7 @@ public class Grid {
 
     //simulate a grid with a 2-dimensional array
     //values at indices are 0 if no ship is present, 1 if ship is present
-    private static int[][] gridArray;
+    private static Ship[][] gridArray;
     private static int shipsOnGrid;
 
     JFrame frame = new JFrame(); //JFrame full of dumb JButtons, todo make clicking on a button shoot at a specific location
@@ -45,21 +47,15 @@ public class Grid {
         
         shipsOnGrid = 0;
         
-        gridArray = new int[width][length];
+        gridArray = new Ship[width][length];
         for (int i = 0; i < width; i++) {
             for (int j = 0; j < length; j++) {
-                gridArray[i][j] = 0; //set array values to 0 as default
+                gridArray[i][j] = null; //set array values to 0 as default
             }
         }
     }
 
-    public static boolean placementCheck(int x, int y) { //checks that the square is empty, no stacking ships!
-        if (gridArray[x][y] == 0) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+    
 
     public static void addShipToGrid() {
         shipsOnGrid++;
@@ -69,21 +65,37 @@ public class Grid {
         return shipsOnGrid;
     }
 
-    public static int checkSquare(int x, int y) {
-        return gridArray[x][y];
+    public static boolean isSquareEmpty(int x, int y) {
+        return gridArray[x][y] != null;
+    }
+    
+    static void checkGameOver() {
+         for (Ship[] row : gridArray) {
+             for (Ship ship : row) {
+                 if (ship == null) continue;
+                 
+                 if (ship.isSunk()) return;
+             } 
+         }
+         
+         JOptionPane.showMessageDialog(null, "Game over!");
     }
 
     //hit square if square has stuff in it
     public static boolean hitSquare(int x, int y) {
-        return (gridArray[x][y] == 1);
+        Ship ship = gridArray[x][y];
+        if (ship == null) {
+            return false;
+        }
+        ship.hit();
+        checkGameOver();
+        return true;
     }
 
-    public static void addToSquare(int x, int y) {
-        if (gridArray[x][y] == 0) {
-            gridArray[x][y] = 1;
-        } else {
-            //do nothing
-        }
+    public static void addToSquare(int x, int y, Ship ship) {
+        if (gridArray[x][y] == null) {
+            gridArray[x][y] = ship;
+        } 
     }
 
 }

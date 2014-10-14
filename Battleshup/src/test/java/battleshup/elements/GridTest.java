@@ -48,7 +48,7 @@ public class GridTest {
     @Test
     public void testPlacementCheck() {
         Grid instance = new Grid(10,10);
-        assertTrue(instance.placementCheck(1,1)); //constructor sets all squares to 1, this should return true
+        assertTrue(!instance.isSquareEmpty(1,1)); //constructor sets all squares to 1, this should return true
     }
     
     @Test

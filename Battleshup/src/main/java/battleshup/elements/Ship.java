@@ -19,6 +19,7 @@ public abstract class Ship {
     int[] herp;
     int[][] derp;
     boolean hurr;
+    protected int health;
     
     abstract int returnSize();
     abstract int[] returnHealth();
@@ -27,4 +28,11 @@ public abstract class Ship {
     abstract boolean place(int x, int y);
     abstract int[][] returnPosition();
     abstract int randomWithRange(int min, int max);
+    public void hit() {
+        if (health > 0) health--;
+    }
+    public boolean isSunk() {
+        return (health == 0);
+    }
+    
 }

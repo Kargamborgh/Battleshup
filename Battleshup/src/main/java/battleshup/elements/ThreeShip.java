@@ -22,6 +22,7 @@ public class ThreeShip extends Ship {
     private boolean placed;
 
     public ThreeShip() {
+        health = 3;
         placed = false;
         squares = new int[3];
         for (int i = 0; i < 3; i++) {
@@ -89,8 +90,8 @@ public class ThreeShip extends Ship {
         if (randomAlignment() == true) {
             x = randomWithRange(0,8);
             for (int i = x; i < x + 3; i++) {
-                if (Grid.placementCheck(i, y)) {
-                    Grid.addToSquare(i, y);
+                if (!Grid.isSquareEmpty(i, y)) {
+                    Grid.addToSquare(i, y, this);
                     position[i][y] = 1;
                 } else {
                     return false;
@@ -99,8 +100,8 @@ public class ThreeShip extends Ship {
         } else {
             y = randomWithRange(0,8);
             for (int i = y; i < y + 3; i++) {
-                if (Grid.placementCheck(x, i)) {
-                    Grid.addToSquare(x, i);
+                if (!Grid.isSquareEmpty(x, i)) {
+                    Grid.addToSquare(x, i, this);
                     position[x][i] = 1;
                 } else {
                     return false;
@@ -112,5 +113,5 @@ public class ThreeShip extends Ship {
         return true;
     }
 
-
+    
 }
