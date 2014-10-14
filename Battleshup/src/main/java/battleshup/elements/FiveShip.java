@@ -85,7 +85,7 @@ public class FiveShip extends Ship {
     
     public boolean place(int x, int y) { //if all squares are free, place ship and placed == true. if not, return false
         if (randomAlignment() == true) {
-            x = randomWithRange(0,6);
+            x = randomWithRange(0,5);
             for (int i = x; i < x + 5; i++) {
                 if (!Grid.isSquareEmpty(i, y)) {
                     Grid.addToSquare(i, y, this);
@@ -95,7 +95,7 @@ public class FiveShip extends Ship {
                 }
             }
         } else {
-            y = randomWithRange(0,6);
+            y = randomWithRange(0,5);
             for (int i = y; i < y + 5; i++) {
                 if (!Grid.isSquareEmpty(x, i)) {
                     Grid.addToSquare(x, i, this);

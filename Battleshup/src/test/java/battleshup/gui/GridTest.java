@@ -66,8 +66,9 @@ public class GridTest {
     @Test
     public void testAddShipToGrid() {
         System.out.println("addShipToGrid");
-        Grid.addShipToGrid();
-        assertEquals(Grid.shipsOnGrid(), 1);
+        Grid grid = new Grid(10,10);
+        grid.addShipToGrid();
+        assertEquals(grid.shipsOnGrid(), 1);
     }
 
     /**
@@ -76,9 +77,9 @@ public class GridTest {
     @Test
     public void testShipsOnGrid() {
         System.out.println("shipsOnGrid");
-        Grid instance = null;
+        Grid instance = new Grid(10,10);
         int expResult = 0;
-        int result = instance.shipsOnGrid();
+        int result = Grid.shipsOnGrid();
         assertEquals(expResult, result);
     }
 
