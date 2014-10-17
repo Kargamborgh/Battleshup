@@ -15,3 +15,6 @@ TODO file
 14.10.2014
 -indicate if a ship is sunk
 -gameover popup when all ships are sunk
+
+17.10.2014
+-done
