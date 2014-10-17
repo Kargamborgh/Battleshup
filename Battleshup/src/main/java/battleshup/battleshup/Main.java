@@ -16,11 +16,11 @@ import battleshup.elements.TwoShip;
  *
  * @author Kargamborgh
  */
-public class Main { //such WIP wow
+public class Main { 
     
     public static void startGame() {
         
-        //instantiate grid & ships
+        
         new Grid(10,10);
         TwoShip twoShip = new TwoShip();
         ThreeShip threeShip = new ThreeShip();

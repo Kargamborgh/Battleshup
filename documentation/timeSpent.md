@@ -12,3 +12,7 @@ Javalabran tuntikirjanpito
 9.10.2014: Graphical grid of JButtons is done, sequence charts. Time spent: 3h
 
 13.10.2014: Finished functionality, GUI works, minor bugfixes left. Time spent: 8h
+
+14.10.2014: Did documentation, demoed application. Time spent: 2h
+
+17.10.2014: Finished documentation, finished project for final commit. Time spent: 4h
