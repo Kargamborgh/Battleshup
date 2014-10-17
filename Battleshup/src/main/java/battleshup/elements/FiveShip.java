@@ -22,6 +22,11 @@ public class FiveShip extends Ship {
     private boolean placed;
     private int range;
     private int health;
+    
+    /*
+    * The constructor sets ship health to maximum (depending on size) and creates an array
+    * into which the position of the ship parts are placed.
+    */
 
     public FiveShip() {
         health = 5;
@@ -49,10 +54,19 @@ public class FiveShip extends Ship {
         //return square values
     }
 
+    
+    
+    
+    @Override
     public int[][] returnPosition() {
-        return null;
+        return this.position;
     }
 
+    /**
+     *  The method sets ship "square" values to zero as well as clears its position
+     * and sets placed to false.
+     */
+    
     @Override
     public void sink() {
         for (int i = 0; i < 5; i++) {
@@ -71,17 +85,40 @@ public class FiveShip extends Ship {
         return placed;
     }
     
+    /*
+    * The randomWithRange method takes two integers as parameters and returns a random integer
+    * from the range.
+    * @param    min     the smallest possible integer
+    * @param    max     the largest possible integer
+    *
+    * @return a random integer from the range
+    */
+    
     @Override
     public int randomWithRange(int min, int max) {
         int range = (max - min) + 1;
         return (int)(Math.random() * range) + min;
     }
     
+    /*
+    * The randomAlignment method uses the randomWithRange method to determine
+    * whether the ship is placed horizontally or vertically.
+    * @return truth value of i == 1
+    */
+    
     public boolean randomAlignment() { //randomize ship alignment: true == horizontal, false == vertical
         int i = randomWithRange(0,1);
         return i == 1;
     }
 
+    /*
+    * The place method uses two parameter integers, determines ship alignment, randomizes the integers
+    * and checks for space availability before placing the ship on the grid using Grid class methods.
+    * @param    x   x coordinate
+    * @param    y   y coordinate
+    *
+    * @return truth value of successful placement
+    */
     
     public boolean place(int x, int y) { //if all squares are free, place ship and placed == true. if not, return false
         if (randomAlignment() == true) {

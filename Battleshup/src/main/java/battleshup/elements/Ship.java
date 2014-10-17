@@ -12,7 +12,7 @@ package battleshup.elements;
  * 
  * This is an abstract ship class, different sized ship classes extend this.
  * Used to be an interface, but changed it to enable instantiation.
- * 
+ * Methods are documented in implementation classes.
  * 
  */
 public abstract class Ship {
@@ -28,9 +28,19 @@ public abstract class Ship {
     abstract boolean place(int x, int y);
     abstract int[][] returnPosition();
     abstract int randomWithRange(int min, int max);
+    
+    /*
+    * The hit() method reduces ship health by one.
+    */
     public void hit() {
         if (health > 0) health--;
     }
+    
+    /*
+    * The isSunk() method returns true if ship health is at zero, otherwise false.
+    * @return health
+    */
+    
     public boolean isSunk() {
         return (health == 0);
     }
